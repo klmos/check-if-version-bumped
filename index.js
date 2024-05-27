@@ -27,9 +27,9 @@ try {
 
   fetch(baseUrl, { headers })
     .then(res => {
-      const result = res.json();
-      if(enableInit && result.size == 0) core.info('New package detected. Pass on check.')
+      if(enableInit && res.size == 0) core.info('New package detected. Pass on check.')
       else {
+        const result = res.json();
         const localVersion = require(`${ process.env.GITHUB_WORKSPACE }/${ packageJsonPath }`).version;
 
         if (!semver.valid(localVersion)) core.setFailed(`Current version '${ localVersion }' detected as invalid one`);
