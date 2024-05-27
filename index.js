@@ -35,6 +35,8 @@ try {
     })
     .catch(core.setFailed);
 } catch (error) {
+  core.info('asd');
+  console.log('asd2');
   core.info(error);
   core.setFailed(error.message);
 }
