@@ -35,5 +35,6 @@ try {
     })
     .catch(core.setFailed);
 } catch (error) {
+  core.info(error);
   core.setFailed(error.message);
 }

@@ -9,6 +9,10 @@ inputs:
     description: 'Relative path to package.json file. Do not start with /'
     required: false
     default: 'package.json'
+  enable_init:
+    description: 'Flag for enabling newly created packages'
+    required: false
+    default: 'true'
 runs:
   using: 'node20'
   main: 'index.js'
