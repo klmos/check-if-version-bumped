@@ -33,10 +33,10 @@ try {
       if (!semver.valid(localVersion)) core.setFailed(`Current version '${ localVersion }' detected as invalid one`);
       if (!semver.gt(localVersion, version)) core.setFailed(`Version '${ localVersion }' wasn't detected as greater than '${ version }'`);
     })
-    .catch(core.setFailed);
+    .catch(err => {
+      core.info(err);
+      core.setFailed(err);
+    });
 } catch (error) {
-  core.info('asd');
-  console.log('asd2');
-  core.info(error);
   core.setFailed(error.message);
 }
