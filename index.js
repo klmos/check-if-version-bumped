@@ -25,7 +25,7 @@ try {
   const baseUrl = `https://raw.githubusercontent.com/${ github.context.repo.owner }/${ github.context.repo.repo }/${ baseSha }/${ packageJsonPath }`
 
   fetch(baseUrl, { headers })
-    .then(core.info(res))
+    .then(res => core.info(res))
     .then(res => res.json())
     .then(res => res.version)
     .then(version => {
